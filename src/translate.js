@@ -6,6 +6,7 @@ var util_1 = require("./util");
 
 function translate(data, options) {
   var e;
+  options.baseUrlAdd = options.baseUrlAdd || '';
   options.from = options.from || 'auto';
   options.to = options.to || 'en';
   if (options.from) {
@@ -29,6 +30,8 @@ function translate(data, options) {
   var tld = options.tld || 'com';
   return translateToken
     .get(data.join(''), {
+      baseUrlAdd: options.baseUrlAdd,
+      to: options.to,
       tld: tld,
       proxy: options.proxy || false,
     })

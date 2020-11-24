@@ -73,6 +73,7 @@ var window = {
 };
 
 function updateTKK(opts) {
+    opts.baseUrlAdd = opts.baseUrlAdd || '';
     opts = opts || {tld: 'com'};
     return new Promise(function (resolve, reject) {
         var now = Math.floor(Date.now() / 3600000);
